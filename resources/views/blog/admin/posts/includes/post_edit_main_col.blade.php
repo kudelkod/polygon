@@ -28,11 +28,11 @@
                                minlength="3" required>
                     </div>
                     <div class="form-group">
-                        <label for="content_raw">Статья</label>
-                        <textarea name="content_raw"
-                                  id="content_raw"
+                        <label for="content_row">Статья</label>
+                        <textarea name="content_row"
+                                  id="content_row"
                                   class="form-control"
-                                  rows="20">{{old('content_raw', $item->content_row)}}</textarea>
+                                  rows="20">{{old('content_row', $item->content_row)}}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="category_id">Категория</label>
@@ -72,10 +72,10 @@
                         <input name="is_published"
                                type="checkbox"
                                class="form-check-input"
-                               value="{{$item->is_published}}"
+                               value="1"
                                @if($item->is_published)
                                checked="checked"
-                            @endif>
+                               @endif>
                         <label class="form-check-label" for="is_published">Опубликовано</label>
                     </div>
                 </div>

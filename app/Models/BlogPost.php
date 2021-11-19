@@ -10,10 +10,32 @@ class BlogPost extends Model
 {
     use SoftDeletes;
 
-    public function category(){
+    /**
+     * @var string[]
+     */
+    protected $fillable
+    =   [
+            'title',
+            'slug',
+            'category_id',
+            'excerpt',
+            'content_row',
+            'is_published',
+            'published_at',
+            'user_id',
+        ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
         return $this->belongsTo(BlogCategory::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user(){
         return $this->belongsTo(User::class);
     }
