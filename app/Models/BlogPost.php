@@ -2,13 +2,22 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property Carbon|mixed $published_at
+ * @property mixed $title
+ * @property mixed $is_published
+ * @property mixed $slug
+ */
 class BlogPost extends Model
 {
     use SoftDeletes;
+    use HasFactory;
 
     /**
      * @var string[]
@@ -26,7 +35,7 @@ class BlogPost extends Model
         ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function category()
     {
@@ -34,7 +43,7 @@ class BlogPost extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function user(){
         return $this->belongsTo(User::class);

@@ -21,7 +21,7 @@ class CategoryController extends BaseController
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
@@ -34,7 +34,7 @@ class CategoryController extends BaseController
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
@@ -49,14 +49,15 @@ class CategoryController extends BaseController
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(BlogCategoryCreateRequest $request)
     {
         $data = $request->input();
-        if (empty($data['slug'])){
-            $data['slug'] = Str::slug($data['title']);
-        }
+////////// Ушло в обсервер
+//        if (empty($data['slug'])){
+//            $data['slug'] = Str::slug($data['title']);
+//        }
 
 //        $item = new BlogCategory($data);
 //        $item->save();
@@ -77,7 +78,10 @@ class CategoryController extends BaseController
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|
+     * \Illuminate\Contracts\View\Factory|
+     * \Illuminate\Contracts\View\View|
+     * \Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -114,10 +118,10 @@ class CategoryController extends BaseController
         }
 
         $data = $request->all();
-
-        if (empty($data['slug'])){
-            $data['slug'] = str_slug($data['title']);
-        }
+//////////////// Ушло в обсервер
+//        if (empty($data['slug'])){
+//            $data['slug'] = str_slug($data['title']);
+//        }
 
         $result = $item->fill($data)->save();
 
