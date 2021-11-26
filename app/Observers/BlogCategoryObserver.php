@@ -7,7 +7,7 @@ use App\Models\BlogCategory;
 class BlogCategoryObserver
 {
 
-    protected function setBlogCategorySlug($blogCategory){
+    protected function setBlogCategorySlug(BlogCategory $blogCategory){
 
         if(empty($blogCategory->slug)){
             $blogCategory->slug = str_slug($blogCategory->title);

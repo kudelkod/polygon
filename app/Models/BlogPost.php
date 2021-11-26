@@ -13,11 +13,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property mixed $title
  * @property mixed $is_published
  * @property mixed $slug
+ * @property mixed $content_row
+ * @property mixed $content_html
+ * @property int|mixed|string $user_id
  */
 class BlogPost extends Model
 {
     use SoftDeletes;
     use HasFactory;
+
+    const UNKNOWN_USER = 1;
 
     /**
      * @var string[]
@@ -31,7 +36,6 @@ class BlogPost extends Model
             'content_row',
             'is_published',
             'published_at',
-            'user_id',
         ];
 
     /**
