@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property mixed $content_row
  * @property mixed $content_html
  * @property int|mixed|string $user_id
+ * @method static find(int $id)
  */
 class BlogPost extends Model
 {

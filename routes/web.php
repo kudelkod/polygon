@@ -52,4 +52,9 @@ Route::group($groupData, function (){
 
 Auth::routes();
 
+Route::group(['prefix' => 'digging_deeper', 'namespace' => 'App\Http\Controllers',], function (){
+    Route::get('collections', 'DiggingDeeperController@collections')
+        ->name('digging_deeper.collections');
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
